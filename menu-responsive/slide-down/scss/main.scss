@@ -1,0 +1,99 @@
+
+@import url(../bourbon/_bourbon);
+
+.jorge {
+  .callalle {
+    color:red;
+  }
+}
+
+.header {
+  border:4px solid green;
+  .menu {
+    ul {
+      padding:0;
+      margin:0;
+      li {
+        display: inline-block;
+        float: left;
+        list-style: none;
+        padding: 0 0 0 5px;
+        margin: 0;
+      }
+    }
+  }
+  .menuIcon {
+    display: none;
+    background: #000;
+    width: 100%;
+    text-align: center;
+    &:hover {
+      background: #999;
+    }
+    a {
+      width: 100%;
+      display: inline-block;
+      color: #fff;
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+  .header {
+    .menu {
+      max-height: 0;
+      overflow: hidden;
+      float: none;
+      text-align: center;
+      width: 100%;
+
+      -webkit-transition: max-height 0.5s;
+      -moz-transition: max-height 0.5s;
+       transition: max-height 0.5s;
+     //@include transition(max-height 0.5s);
+      &.menuOpen {
+        max-height: 1000px;
+        //@include transition(max-height 0.5s);
+        -webkit-transition: max-height 0.5s;
+        -moz-transition: max-height 0.5s;
+        transition: max-height 0.5s;
+      }
+    ul {
+      li {
+        display: block;
+        width: 100%;
+        background: #000;
+        border-top:1px solid #4d4d4d;
+        &:hover {
+          background: #999;
+        }
+        a {
+          color: #fff;
+          text-shadow: #848484 0px 1px 2px;
+          padding: 10px 0;
+          width: 100%;
+          }
+        }
+      }
+    }
+    .menuIcon {
+      display: inline-block;
+    }
+  }
+}
+
+
+box:hover {
+  // Animation shorthand works the same as the CSS3 animation shorthand
+  @include animation(scale 1.0s ease-in, slide 2.0s ease);
+
+  // The above outputs the same CSS as using independent, granular mixins.
+  @include animation-name(scale, slide);
+  @include animation-duration(2s);
+  @include animation-timing-function(ease);
+  @include animation-iteration-count(infinite);
+}
